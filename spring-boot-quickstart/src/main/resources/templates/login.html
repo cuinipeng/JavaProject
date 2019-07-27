@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<title>Hello,React</title>
+	<link rel="icon" th:href="@{images/favicon.ico}">
+	<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+	<link th:href="@{css/login-style.css}" rel="stylesheet">
+	<style type="text/css"></style>
+</head>
+<body class="text-center">
+
+	<form class="form-signin" method="POST" action="#">
+		<img class="mb-4" th:src="@{images/huawei.svg}" alt="" width="72" height="72"/>
+		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+		<label for="inputEmail" class="sr-only">Email address</label>
+		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		<label for="inputPassword" class="sr-only">Password</label>
+      	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      	<div class="checkbox mb-3">
+      		<label>
+      			<input type="checkbox" value="remember-me"> Remember me
+      		</label>
+      	</div>
+      	<button class="btn btn-lg btn-primary btn-block">Sign in</button>
+      	<p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+	</form>
+
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.15.0/popper.min.js"></script>
+	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/16.8.6/umd/react.production.min.js"></script>
+	<script src="https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.profiling.min.js"></script>
+  	<script type="text/javascript"></script>
+	<script type="text/babel"></script>
+</body>
+</html>
