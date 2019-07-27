@@ -1,0 +1,14 @@
+{
+  "name": "cuinipeng",
+  "email": "cuinipeng@163.com",
+  "skills": ["Python", "Java", "Spark", "Linux"],
+  "address": {
+    "province": "Shannxi",
+    "city": "XiAn",
+    "street": "***"
+  },
+  "additional": {
+    "hobby": "basketball",
+    "pet": "cat"
+  }
+}
