@@ -1,4 +1,3 @@
-https://mvnrepository.com/
 
 ### Java Logging Framework
 https://stackify.com/compare-java-logging-frameworks

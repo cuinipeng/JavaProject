@@ -1,3 +1,4 @@
+https://mvnrepository.com/
 
 ### 安装本地 jar 到本地 maven 仓库
 
