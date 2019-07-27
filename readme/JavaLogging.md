@@ -6,15 +6,19 @@ https://stackify.com/compare-java-logging-frameworks
 https://thoughts-on-java.org/hibernate-logging-guide
 
 1. SLF4J
+```java
 Logger logger = LoggerFactory.getLogger(this.getClass().getName());
+```
+```pom.xml
 <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-api</artifactId>
     <version>1.7.26</version>
 </dependency>
-
+```
 2. Apache Log4j
+```pom.xml
 <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 <dependency>
     <groupId>org.slf4j</groupId>
@@ -34,7 +38,7 @@ Logger logger = LoggerFactory.getLogger(this.getClass().getName());
     <version>1.2.17</version>
 </dependency>
 ```
-log4j.properties
+```log4j.properties
 ### 设置###
 log4j.rootLogger = INFO,stdout,D,E
 
@@ -65,6 +69,7 @@ log4j.logger.org.apache.hbase =INFO
 ```
 
 3. Logback
+```pom.xml
 <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
 <dependency>
     <groupId>ch.qos.logback</groupId>
@@ -84,7 +89,7 @@ log4j.logger.org.apache.hbase =INFO
     <version>1.2.3</version>
 </dependency>
 ```
-logback.xml
+```logback.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!--每天生成一个文件, 归档文件保存30天-->
 <configuration scan="true" scanPeriod="60" debug="false">
@@ -134,13 +139,7 @@ log4j2.xml
 
 
 
-
-
-
-
-
-
-
+```pom.xml
 <exclusions>
 	<exclusion>
 	    <groupId>org.slf4j</groupId>
@@ -159,3 +158,4 @@ log4j2.xml
 	    <artifactId>commons-logging</artifactId>
 	</exclusion>
 </exclusions>
+```
