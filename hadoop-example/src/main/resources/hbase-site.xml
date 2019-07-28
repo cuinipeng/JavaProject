@@ -100,6 +100,10 @@
         A value of 1 means that each handler has its own queue.</description>
   </property>
   <property>
+    <name>hbase.hregion.max.filesize</name>
+    <value>1073741824</value>
+    <description>Maximum HFile size. If the sum of the sizes of a region's HFiles has grown to exceed this value, the region is split in two.</description>
+  <property>
     <name>hbase.master.logcleaner.plugins</name>
     <value>org.apache.hadoop.hbase.master.cleaner.TimeToLiveLogCleaner,org.apache.hadoop.hbase.master.cleaner.TimeToLiveProcedureWALCleaner</value>
     <description>A comma-separated list of BaseLogCleanerDelegate invoked by the LogsCleaner service.</description>
