@@ -93,16 +93,17 @@
         Same property is used by the Master for count of master handlers. Make it a multiple of CPU count.</description>
   </property>
   <property>
+    <name>hbase.hregion.max.filesize</name>
+    <value>1073741824</value>
+    <description>Maximum HFile size. If the sum of the sizes of a region’s HFiles has grown to exceed this value, the region is split in two.</description>
+  </property>
+  <property>
     <name>hbase.ipc.server.callqueue.handler.factor</name>
     <value>0.5</value>
     <description>Factor to determine the number of call queues.
         A value of 0 means a single queue shared between all the handlers.
         A value of 1 means that each handler has its own queue.</description>
   </property>
-  <property>
-    <name>hbase.hregion.max.filesize</name>
-    <value>1073741824</value>
-    <description>Maximum HFile size. If the sum of the sizes of a region's HFiles has grown to exceed this value, the region is split in two.</description>
   <property>
     <name>hbase.master.logcleaner.plugins</name>
     <value>org.apache.hadoop.hbase.master.cleaner.TimeToLiveLogCleaner,org.apache.hadoop.hbase.master.cleaner.TimeToLiveProcedureWALCleaner</value>

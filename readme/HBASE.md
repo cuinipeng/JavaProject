@@ -104,6 +104,9 @@ hbase(main):001:0> count '<tablename>', CACHE => 1000
 * [hadoop2-HBase的Java API操作](https://cloud.tencent.com/developer/article/1370321)
 * [http://192.168.100.135:16010/master-status](https://yq.aliyun.com/articles/674755)
 
+### [winutils.exe](https://github.com/steveloughran/winutils)
+
+
 
 kubernetes部署（kubeadm国内镜像源）
 https://my.oschina.net/Kanonpy/blog/3006129
