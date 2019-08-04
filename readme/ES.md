@@ -1,7 +1,7 @@
-### Kibana ÓÃ»§Ö¸ÄÏ£¨¹¹½¨Äã×Ô¼ºµÄÒÇ±íÅÌ£©
+### Kibana ç”¨æˆ·æŒ‡å—ï¼ˆæ„å»ºä½ è‡ªå·±çš„ä»ªè¡¨ç›˜ï¼‰
 https://segmentfault.com/a/1190000015140923
 
-### ÊÖ°ÑÊÖ½ÌÄã´î½¨Ò»¸ö Elasticsearch ¼¯Èº
+### æ‰‹æŠŠæ‰‹æ•™ä½ æ­å»ºä¸€ä¸ª Elasticsearch é›†ç¾¤
 https://juejin.im/post/5bad9520f265da0afe62ed95
 
 

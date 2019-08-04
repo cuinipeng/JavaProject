@@ -1,9 +1,9 @@
 ```shell
-# ����Ŀ¼��ʽ��
+# 数据目录格式化
 $ hdfs namenode -format
-# ����HDFS��Ⱥ
+# 启动HDFS集群
 $ start-dfs.sh
-# ֹͣHDFS��Ⱥ
+# 停止HDFS集群
 $ stop-dfs.sh
 ```
 

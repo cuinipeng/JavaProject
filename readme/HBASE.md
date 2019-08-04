@@ -28,12 +28,12 @@ $ hbase shell
 $ hbase org.jruby.Main PATH_TO_SCRIPT
 ```
 
-### HBase Shell ·Ç½»»¥Ä£Ê½£¨-n or --non-interactive£©
+### HBase Shell éäº¤äº’æ¨¡å¼ï¼ˆ-n or --non-interactiveï¼‰
 ```shell
 $ ehco "describe 'test'" | hbase shell -n 2> /dev/null
 ```
 
-### ´ÓÎÄ¼şÖĞ¶ÁÈ¡HBase ShellÃüÁî
+### ä»æ–‡ä»¶ä¸­è¯»å–HBase Shellå‘½ä»¤
 ```shell
 $ cat sample_comands.txt                                                                                                                   
 create 'test', 'cf'
@@ -57,20 +57,20 @@ exit
 $ hbase shell ./sample_comands.txt
 ```
 
-### ´«µİVMÑ¡Ïî¸øHBase Shell
+### ä¼ é€’VMé€‰é¡¹ç»™HBase Shell
 ```shell
 $ HBASE_SHELL_OPTS="-verbose:gc -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps \
 -XX:+PrintGCDetails -Xloggc:$HBASE_HOME/logs/gc-hbase.log" hbase shell
 ```
 
-### ²éÑ¯HBase ShellÅäÖÃ
+### æŸ¥è¯¢HBase Shellé…ç½®
 ```shell
 hbase(main):001:0> @shell.hbase.configuration.get("hbase.zookeeper.quorum")
 hbase(main):002:0> @shell.hbase.configuration.get("hbase.rpc.timeout")
 hbase(main):003:0> @shell.hbase.configuration.setInt("hbase.rpc.timeout", 61010)
 ```
 
-### irbrc ÅäÖÃ HBase Shell
+### irbrc é…ç½® HBase Shell
 ```
 $ more ~/.irbrc
 require 'irb/ext/save-history'
@@ -79,8 +79,24 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 IRB.conf[:ECHO] = false
 ```
 
-### Ô¤ÏÈ·ÖÁÑ±í
+### é¢„å…ˆåˆ†è£‚è¡¨
 ```shell
+# ä¸ºä»€ä¹ˆåé¢ä¼šè·Ÿç€ä¸€ä¸ª"|", æ˜¯å› ä¸ºåœ¨ASCIIç ä¸­, "|"çš„å€¼æ˜¯124,
+# å¤§äºæ‰€æœ‰çš„æ•°å­—å’Œå­—æ¯ç­‰ç¬¦å·, å½“ç„¶ä¹Ÿå¯ä»¥ç”¨â€œ~â€(ASCII-126).
+# åˆ†éš”æ–‡ä»¶çš„ç¬¬ä¸€è¡Œä¸ºç¬¬ä¸€ä¸ªregionçš„stopkey, æ¯è¡Œä¾æ¬¡ç±»æ¨,
+# æœ€åä¸€è¡Œä¸ä»…æ˜¯å€’æ•°ç¬¬äºŒä¸ªregionçš„stopkey, åŒæ—¶ä¹Ÿæ˜¯æœ€åä¸€ä¸ª
+# regionçš„startkey. ä¹Ÿå°±æ˜¯è¯´åˆ†åŒºæ–‡ä»¶ä¸­å¡«çš„éƒ½æ˜¯keyå–å€¼èŒƒå›´çš„åˆ†éš”ç‚¹.
+$ cat splits.txt
+0001|  
+0002|  
+0003|  
+0004|  
+0005|  
+0006|  
+0007|  
+0008|  
+0009|
+
 hbase(main):001:0> create 'test1', 'cf', SPLITS => ['10','20','30']
 hbase(main):002:0> create 'test2', 'cf', SPLITS_FILE => 'splits.txt'
 hbase(main):003:0> create 'test3','cf', { NUMREGIONS => 4, SPLITALGO => 'UniformSplit' }
@@ -93,32 +109,32 @@ $ hbase shell -d
 hbase(main):001:0> debug
 ```
 
-### ¸ßĞ§µÄ count
+### é«˜æ•ˆçš„ count
 ```shell
 hbase(main):001:0> count '<tablename>', CACHE => 1000
 ```
 
 ### HBase Java API Access
-* [Spring BootÏîÄ¿ÖĞÊ¹ÓÃ×îĞÂ°æHBase Java API²Ù×÷HBase 2.xÏê½â](https://www.zifangsky.cn/1286.html)
-* [Í¨¹ı API Ê¹ÓÃ Hbase](https://cloud.tencent.com/document/product/589/12310)
-* [hadoop2-HBaseµÄJava API²Ù×÷](https://cloud.tencent.com/developer/article/1370321)
+* [Spring Booté¡¹ç›®ä¸­ä½¿ç”¨æœ€æ–°ç‰ˆHBase Java APIæ“ä½œHBase 2.xè¯¦è§£](https://www.zifangsky.cn/1286.html)
+* [é€šè¿‡ API ä½¿ç”¨ Hbase](https://cloud.tencent.com/document/product/589/12310)
+* [hadoop2-HBaseçš„Java APIæ“ä½œ](https://cloud.tencent.com/developer/article/1370321)
 * [http://192.168.100.135:16010/master-status](https://yq.aliyun.com/articles/674755)
 
 ### [winutils.exe](https://github.com/steveloughran/winutils)
 
 
 
-kubernetes²¿Êğ£¨kubeadm¹úÄÚ¾µÏñÔ´£©
+kuberneteséƒ¨ç½²ï¼ˆkubeadmå›½å†…é•œåƒæºï¼‰
 https://my.oschina.net/Kanonpy/blog/3006129
-kubernetes°²×°£¨¹úÄÚ»·¾³£©
+kuberneteså®‰è£…ï¼ˆå›½å†…ç¯å¢ƒï¼‰
 https://zhuanlan.zhihu.com/p/46341911
-Kibana ÓÃ»§Ö¸ÄÏ£¨¹¹½¨Äã×Ô¼ºµÄÒÇ±íÅÌ£©
+Kibana ç”¨æˆ·æŒ‡å—ï¼ˆæ„å»ºä½ è‡ªå·±çš„ä»ªè¡¨ç›˜ï¼‰
 https://segmentfault.com/a/1190000015140923
-ÔÚ¹úÄÚÊ¹ÓÃkubeadm´î½¨k8s¼¯Èº
+åœ¨å›½å†…ä½¿ç”¨kubeadmæ­å»ºk8sé›†ç¾¤
 https://www.jianshu.com/p/c138e97423a4
-ÊÖ°ÑÊÖ½ÌÄã´î½¨Ò»¸ö Elasticsearch ¼¯Èº
+æ‰‹æŠŠæ‰‹æ•™ä½ æ­å»ºä¸€ä¸ª Elasticsearch é›†ç¾¤
 https://juejin.im/post/5bad9520f265da0afe62ed95
-Hibernate ½Ì³Ì
+Hibernate æ•™ç¨‹
 https://www.w3cschool.cn/hibernate/skzl1idz.html
 Java H2 tutorial
 http://zetcode.com/java/h2database/
