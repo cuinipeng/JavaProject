@@ -32,7 +32,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-        <!--ch.qos.logback:logback-classic:1.2.3 -> org.slf4j:slf4j:1.7.25-->
+        <!--ch.qos.logback:logback-classic -> org.slf4j:slf4j-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
