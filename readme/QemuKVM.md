@@ -60,7 +60,8 @@ $ ssh root@vncserver -L 5900:127.0.0.1:5900
 $ virsh start ${vmname}
 
 # 检查虚拟机IP地址
-$ virsh net-dhcp-leases default
+$ vm_mac_addr=$(virsh dumpxml ${vmname} | egrep -o "<mac address='(.*)'/>" | awk -F"'" '{print $2}')
+$ vm_ip=$(virsh net-dhcp-leases default | grep ${vm_mac_addr} | awk '{print $5}')
 
 # 检查虚拟机域信息
 $ virsh dominfo ${vmname}
@@ -75,4 +76,12 @@ $ virsh destroy ${vmname}
 $ virsh undefine ${vmname}
 
 # mkisofs 待定
+$ export volume_name="CentOS_7"
+$ export img_filename="CentOS_7.x86_64.iso"
+$ export root_folder="tmp/"
+$ genisoimage -R -J -T -r -l -d -input-charset "utf-8" \
+        -allow-multidot -allow-leading-dots -no-bak \
+        -b isolinux/isolinux.bin -c isolinux/boot.cat \
+        -no-emul-boot -boot-load-size 4 -boot-info-table \
+        -V "${volume_name}" -o "${img_filename}" "${root_folder}"
 ```
