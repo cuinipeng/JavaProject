@@ -38,6 +38,7 @@ import org.apache.hadoop.hbase.filter.RowFilter;
 import org.apache.hadoop.hbase.filter.SubstringComparator;
 import org.apache.hadoop.hbase.shaded.org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.security.UserGroupInformation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,6 +51,7 @@ import org.slf4j.LoggerFactory;
 public class HBaseService {
 
     private Logger logger = LoggerFactory.getLogger(HBaseService.class);
+    private boolean secured = false;
 
     /**
      * 声明静态配置
@@ -66,6 +68,22 @@ public class HBaseService {
 
     public HBaseService(Configuration conf) {
         this.conf = conf;
+
+        if (secured) {
+            // 访问带 Kerberos 认证的 HBase 集群
+            String krb5_conf = "/etc/krb5.conf";
+            String principal = "hbase@HADOOP.COM";
+            String keytab_file = "/etc/hbase.keytab";
+            System.setProperty("java.security.krb5.conf", krb5_conf);
+            conf.set("hadoop.security.authentication", "Kerberos");
+            UserGroupInformation.setConfiguration(conf);
+            try {
+                UserGroupInformation.loginUserFromKeytab(principal,keytab_file );
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         try {
             connection = ConnectionFactory.createConnection(conf);
         } catch (IOException e) {
