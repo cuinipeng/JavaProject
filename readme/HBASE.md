@@ -122,7 +122,39 @@ hbase(main):001:0> count '<tablename>', CACHE => 1000
 
 ### [winutils.exe](https://github.com/steveloughran/winutils)
 
+### 导出 HBase 数据到 HDFS
+```shell
+# 1. 创建 HDFS 导出目录
+hdfs dfs -rm -r -f -skipTrash /tmp/export
+hdfs dfs -mkdir /tmp/export
+hdfs dfs -ls /tmp/export
+# 2. 导出 HBase 数据(sequence file 格式)
+# https://examples.javacodegeeks.com/enterprise-jar/apache-hadoop/hadoop-sequence-file-example/
+hbase org.apache.hadoop.hbase.mapreduce.Export TABLE /tmp/export/TABLE
+hdfs dfs -get /tmp/export/TABLE
+# 3. 导入 HBase 数据
+hbase org.apache.hadoop.hbase.mapreduce.Import TABLE /tmp/export/TABLE
+# 4. 使用 HBase shell 扫描数据
+echo "scan 'TABLE', { STARTROW => 'startrow', ENDROW => 'endrow', COLUMNS = 'columns', FILTER => 'filter' }" | hbase shell
+# 5. 提交 jar 包导出数据
+hadoop jar hbase_export_hdfs.jar com.github.cuinipeng.Application TABLE PATH
+# 6. 示例
+create 'test', 'cf'
 
+put 'test', 'user1|ts1', 'cf:c1', 'python'
+put 'test', 'user1|ts2', 'cf:c1', 'shell'
+put 'test', 'user1|ts3', 'cf:s1', 'cassandra'
+put 'test', 'user2|ts4', 'cf:c1', 'hbase'
+put 'test', 'user2|ts5', 'cf:c2', 'spring'
+put 'test', 'user2|ts6', 'cf:s1', 'kubenetes'
+
+# 根据 rowkey 范围过滤
+scan 'test', { STARTROW => 'user1|ts1', ENDROW => 'user1|ts3' }
+# 过滤指定列
+scan 'test', { STARTROW => 'user1|ts1', ENDROW => 'user1|ts4'， COLUMNS => ['cf:c1', 'cf:s1'] }
+# 根据 rowkey 前缀过滤
+scan 'test', { STARTROW => 'user1|ts1', ENDROW => 'user1|ts4'， COLUMNS => ['cf:c1', 'cf:s1'], FILTER => 'PrefixFilter("user1")' }
+```
 
 kubernetes部署（kubeadm国内镜像源）
 https://my.oschina.net/Kanonpy/blog/3006129
