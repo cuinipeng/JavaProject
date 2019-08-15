@@ -17,8 +17,13 @@
         <scala.version>2.12.4</scala.version>
         <jackson.version>2.9.9.2</jackson.version>
         <logback.version>1.2.3</logback.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <kafka.version>2.1.0</kafka.version>
         <netty.version>4.1.36.Final</netty.version>
+        <cglib.version>3.2.12</cglib.version>
+        <json-path.version>2.4.0</json-path.version>
+        <commoms-pool2.version>2.7.0</commoms-pool2.version>
+        <jedis.version>3.1.0</jedis.version>
     </properties>
 
     <dependencies>
@@ -32,11 +37,15 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-        <!--ch.qos.logback:logback-classic -> org.slf4j:slf4j-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.kafka</groupId>
@@ -56,7 +65,22 @@
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>3.2.12</version>
+            <version>${cglib.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${json-path.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${commoms-pool2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
         </dependency>
     </dependencies>
 

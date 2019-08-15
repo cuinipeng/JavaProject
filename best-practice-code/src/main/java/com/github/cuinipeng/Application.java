@@ -5,6 +5,7 @@ import com.github.cuinipeng.kafka.Producer;
 import com.github.cuinipeng.netty.NettyTCPClient;
 import com.github.cuinipeng.netty.NettyTCPServer;
 import com.github.cuinipeng.proxy.MultiProxy;
+import com.github.cuinipeng.redis.RedisHandler;
 import com.github.cuinipeng.utils.JacksonUsage;
 import com.github.cuinipeng.utils.ThreadPoolUsage;
 import org.slf4j.Logger;
@@ -43,6 +44,8 @@ public class Application {
             case "proxy":
                 new MultiProxy().run();
                 break;
+            case "redis":
+                new RedisHandler().run();
             default:
                 logger.info("Nothing");
 
