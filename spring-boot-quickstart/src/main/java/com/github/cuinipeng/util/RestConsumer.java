@@ -1,4 +1,4 @@
-package com.github.cuinipeng;
+package com.github.cuinipeng.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +16,7 @@ public class RestConsumer implements CommandLineRunner {
     @Autowired
     RestTemplate restTemplate;
 
+    // 构建自定义 RestTemplate
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();

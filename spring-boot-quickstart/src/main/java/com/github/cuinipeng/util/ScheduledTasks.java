@@ -1,4 +1,4 @@
-package com.github.cuinipeng;
+package com.github.cuinipeng.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ import java.util.Date;
 public class ScheduledTasks {
 
     private static final Logger logger = LoggerFactory.getLogger(ScheduledTasks.class);
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S E z");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S z");
 
     // @Scheduled(fixedRate = 5000)
     @Scheduled(cron = "*/30 * * * * *")     // second minute hour day month week
