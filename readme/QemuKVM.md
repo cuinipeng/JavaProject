@@ -85,3 +85,40 @@ $ genisoimage -R -J -T -r -l -d -input-charset "utf-8" \
         -no-emul-boot -boot-load-size 4 -boot-info-table \
         -V "${volume_name}" -o "${img_filename}" "${root_folder}"
 ```
+
+
+https://cloudbase.it/qemu-img-windows/
+https://cloudbase.it/downloads/qemu-img-win-x64-2_3_0.zip
+
+
+Usage examples
+
+1. Convert a QCOW2, RAW, VMDK or VDI image to VHDX
+qemu-img.exe convert source.img -O vhdx -o subformat=dynamic dest.vhdx
+
+2. Convert a QCOW2, RAW, VMDK or VDI image to VHD
+qemu-img.exe convert source.img -O vpc -o subformat=dynamic dest.vhd
+
+Subformat can be either “dynamic” or “fixed” for VHD (vpc) or VHDX.
+
+> Note: use the fixed VHD subformat for Azure, the conversion will 
+  automatically take care of  the required 1MB virtual size alignment.
+
+3. Check a virtual disk for consistency
+qemu-img.exe check source.qcow2
+
+4. Get info about a virtual disk
+qemu-img.exe info image.qcow2
+
+
+vmware-vdiskmanager.exe -k CentOS-1810.vmdk
+
+
+
+https://www.vladan.fr/reduce-vmdk-size/
+
+VMware vCenter Converter Standalone
+
+yum install open-vm-tools
+vmware-toolbox-cmd disk list
+vmware-toolbox-cmd disk shrink /
