@@ -1,5 +1,6 @@
 package com.github.cuinipeng;
 
+import com.github.cuinipeng.gson.GsonUsage;
 import com.github.cuinipeng.kafka.Consumer;
 import com.github.cuinipeng.kafka.Producer;
 import com.github.cuinipeng.netty.NettyTCPClient;
@@ -12,7 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Application {
+
     private static Logger logger = LoggerFactory.getLogger(Application.class);
+
     public static void main(String[] args) {
         logger.info("best practice code application");
         if (args.length >= 1) {
@@ -46,6 +49,9 @@ public class Application {
                 break;
             case "redis":
                 new RedisHandler().run();
+            case "json":
+                new GsonUsage().run();
+                break;
             default:
                 logger.info("Nothing");
 
