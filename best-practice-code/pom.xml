@@ -19,7 +19,7 @@
     <logback.version>1.2.3</logback.version>
     <slf4j.version>1.7.25</slf4j.version>
     <kafka.version>2.1.0</kafka.version>
-    <netty.version>4.1.36.Final</netty.version>
+    <netty.version>4.1.42.Final</netty.version>
     <cglib.version>3.2.12</cglib.version>
     <json-path.version>2.4.0</json-path.version>
     <commoms-pool2.version>2.7.0</commoms-pool2.version>
